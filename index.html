@@ -3,96 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio - Andrés Felipe Arteaga Cruz</title>
+  <title>Portafolio - Andrés Arteaga</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome para iconos -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
-    }
-    header {
+    /* Reset y tipografía */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: #f0f4f8; color: #333; line-height: 1.6; }
+
+    /* Hero */
+    .hero {
       background: #0a192f;
       color: white;
       text-align: center;
-      padding: 50px 20px;
+      padding: 120px 20px;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header h2 {
-      margin: 10px 0 0;
-      font-weight: 400;
-    }
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
+    .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+    .btn { background: #00bcd4; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: 600; transition: 0.3s; }
+    .btn:hover { background: #0097a7; }
+
+    /* Secciones */
+    section { max-width: 900px; margin: 60px auto; padding: 20px; }
+    section h2 { font-size: 2rem; color: #0a192f; margin-bottom: 20px; border-bottom: 2px solid #00bcd4; display: inline-block; padding-bottom: 5px; }
+
+    /* About */
+    #about p { font-size: 1rem; }
+
+    /* Projects */
+    .projects { display: flex; flex-wrap: wrap; gap: 20px; }
+    .project-card {
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    h3 {
-      border-bottom: 2px solid #0a192f;
-      padding-bottom: 5px;
-    }
-    .contacto a {
-      display: inline-block;
-      margin-right: 15px;
-      text-decoration: none;
-      color: #0a192f;
-      font-weight: bold;
-    }
-    footer {
-      text-align: center;
+      flex: 1 1 250px;
       padding: 20px;
-      background: #0a192f;
-      color: white;
-      margin-top: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+    .project-card h3 { margin-bottom: 10px; color: #0a192f; }
+    .project-card p { font-size: 0.95rem; }
+
+    /* Contact */
+    #contact a { display: inline-block; margin-right: 15px; text-decoration: none; color: #0a192f; font-weight: 600; transition: color 0.3s; }
+    #contact a:hover { color: #00bcd4; }
+
+    /* Footer */
+    footer { text-align: center; padding: 20px; background: #0a192f; color: white; margin-top: 60px; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .projects { flex-direction: column; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>👋 Hola, soy Andrés Felipe Arteaga Cruz</h1>
-    <h2>QA Engineer | Pruebas Funcionales y Automatizadas</h2>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>👋 Hola, soy Andrés Arteaga</h1>
+    <p>QA Engineer | Pruebas Funcionales y Automatizadas</p>
+    <a href="#contact" class="btn">Conecta conmigo</a>
   </header>
 
-  <section>
-    <h3>🚀 Sobre mí</h3>
-    <p>
-      QA Engineer bilingüe (C1) con formación en Ingeniería Industrial y mejora de procesos. 
-      Experiencia en pruebas funcionales, de regresión, móviles y validación de APIs. 
-      He trabajado con automatización usando Selenium, Python y Pytest.
-    </p>
+  <!-- About -->
+  <section id="about">
+    <h2>Sobre mí</h2>
+    <p>QA Engineer bilingüe (C1) con formación en Ingeniería Industrial y mejora de procesos. Experiencia en pruebas funcionales, de regresión, móviles y validación de APIs. He trabajado con automatización usando Selenium, Python y Pytest, y siempre busco aprender nuevas tecnologías y mejorar la calidad del software.</p>
   </section>
 
-  <section>
-    <h3>🛠️ Tecnologías</h3>
-    <p>Selenium, Python, Pytest, Postman, SQL, Jira, Confluence, Android Studio Emulator</p>
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Proyectos Destacados</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Urban Grocers</h3>
+        <p>Pruebas QA manuales y reporte de bugs en aplicaciones móviles y web.</p>
+      </div>
+      <div class="project-card">
+        <h3>Urban Routes</h3>
+        <p>Automatización end-to-end con Selenium + Pytest, incluyendo validación de flujos y notificaciones.</p>
+      </div>
+      <div class="project-card">
+        <h3>Ez-scooter API</h3>
+        <p>Validación de endpoints, pruebas de notificaciones push y cobertura de funcionalidades críticas.</p>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h3>📂 Proyectos Destacados</h3>
-    <ul>
-      <li><strong>Urban Grocers</strong> – Pruebas QA manuales y reporte de bugs.</li>
-      <li><strong>Urban Routes</strong> – Pruebas automatizadas end-to-end con Selenium + Pytest.</li>
-      <li><strong>Ez-scooter API</strong> – Validación de endpoints y notificaciones push.</li>
-    </ul>
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contacto</h2>
+    <a href="mailto:andresfelipeac@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+    <a href="https://www.linkedin.com/in/andresfelipearteaga/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <a href="https://github.com/AndresArteaga" target="_blank"><i class="fab fa-github"></i> GitHub</a>
   </section>
 
-  <section class="contacto">
-    <h3>🌐 Conecta conmigo</h3>
-    <a href="mailto:andresfelipeac@gmail.com">📧 Email</a>
-    <a href="https://www.linkedin.com/in/andresfelipearteaga/" target="_blank">💼 LinkedIn</a>
-    <a href="https://github.com/AndresArteaga" target="_blank">🐙 GitHub</a>
-  </section>
-
+  <!-- Footer -->
   <footer>
     ✨ Siempre en búsqueda de mejorar la calidad del software y aprender nuevas tecnologías.
   </footer>
+
 </body>
 </html>
+
 Subir portafolio nuevo
