@@ -1,119 +1,101 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="Andres Arteaga - QA & Process Optimization Portfolio" />
+  <meta name="author" content="Andres Arteaga" />
   <title>Andres Arteaga - Portfolio</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Font Awesome (CDN) -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+  <!-- Font Awesome -->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Muli:400,700|Saira+Extra+Condensed:500,700" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" />
+  <!-- Bootstrap -->
+  <link href="css/styles.css" rel="stylesheet" />
   <style>
-    :root {
-      --main-blue: #1a73e8;
-      --main-blue-dark: #1558b0;
+    /* Colores principales */
+    .bg-primary { background-color: #1a73e8 !important; }
+    .text-primary { color: #1a73e8 !important; }
+    .btn-primary {
+      background-color: #1a73e8;
+      border-color: #1a73e8;
     }
-    html {
-      scroll-behavior: smooth; /* smooth scroll fallback */
-    }
-    body {
-      font-family: "Muli", sans-serif;
-      margin: 0;
-    }
-
-    /* NAVBAR */
-    .bg-primary { background-color: var(--main-blue) !important; }
-    .navbar .nav-link { color: #fff; }
-    .navbar .nav-link i { margin-right: .5rem; }
-
-    /* OFFSET FIX (fallback) */
-    section[id] {
-      /* Fallback for browsers that don't support JS offset: reserve space */
-      scroll-margin-top: 100px;
+    .btn-primary:hover {
+      background-color: #1558b0;
+      border-color: #1558b0;
     }
 
-    /* GENERAL LAYOUT */
-    .resume-section { padding: 80px 0; }
-    .resume-section .resume-section-content { max-width: 920px; margin: 0 auto; }
+    /* Sidebar */
+    #sideNav {
+      min-height: 100vh;
+    }
+    .img-profile {
+      border: 5px solid #fff;
+    }
 
-    /* HEADERS spacing */
-    .resume-section h2 { margin-bottom: 3.5rem; }
-
-    /* WHO I AM style */
-    #about {
-      background-color: rgba(26,115,232,0.05);
+    /* Cards */
+    .card {
+      border: none;
       border-radius: 12px;
-      padding: 48px 22px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    #about h2 { font-size: 2rem; margin-bottom: .75rem; }
-    #about h1 { font-size: 2.4rem; margin-bottom: .5rem; }
-    #about .lead { font-size: 1.15rem; line-height: 1.7; color: #222; }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .card-title {
+      color: #1a73e8;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
 
     /* Social icons */
-    .social-icons a { font-size: 1.4rem; margin-right: 14px; color: var(--main-blue); }
-    .social-icons a:hover { color: var(--main-blue-dark); }
-
-    /* Project cards */
-    .card-title { color: var(--main-blue); }
-
-    /* Make sure navbar fixed does not cover content visually (extra top padding to body) */
-    body { padding-top: 70px; }
-
-    /* Small screens: reduce padding-top offset */
-    @media (max-width: 768px) {
-      body { padding-top: 64px; }
-      section[id] { scroll-margin-top: 90px; }
+    .social-icons a {
+      font-size: 1.6rem;
+      margin: 0 10px;
+      transition: transform 0.2s ease;
     }
+    .social-icons a:hover { transform: scale(1.2); }
+    .fa-file-pdf { color: #d93025; }
+    .fa-linkedin-in { color: #0a66c2; }
+    .fa-github { color: #333; }
   </style>
 </head>
 <body id="page-top">
-  <!-- NAV -->
+  <!-- Sidebar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#page-top">
-        <span class="d-block d-lg-none">Andres Arteaga</span>
-        <span class="d-none d-lg-block">
-          <img src="assets/img/profile.jpg" alt="photo" class="rounded-circle" style="width:70px;height:70px;object-fit:cover;">
-        </span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about"><i class="fa-solid fa-user-astronaut"></i> Who I Am</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience"><i class="fa-solid fa-bullseye"></i> Where I’ve Made an Impact</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education"><i class="fa-solid fa-graduation-cap"></i> How I’ve Prepared</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills"><i class="fa-solid fa-hands-helping"></i> How I Can Help You</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects"><i class="fa-solid fa-rocket"></i> My Work</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact"><i class="fa-solid fa-paper-plane"></i> Let’s Connect</a></li>
-        </ul>
-      </div>
+    <a class="navbar-brand js-scroll-trigger" href="#about">
+      <span class="d-block d-lg-none">Andres Arteaga</span>
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="Profile picture" />
+      </span>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav flex-column">
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Who I Am</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Where I’ve Made an Impact</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">How I’ve Prepared</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">How I Can Help You</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">My Work in Action</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Let’s Connect</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- PAGE CONTENT -->
-  <main class="container-fluid p-0">
-
-    <!-- WHO I AM -->
-    <section id="about" class="resume-section">
+  <!-- Main Content -->
+  <div class="container-fluid p-0">
+    <!-- Who I Am -->
+    <section class="resume-section" id="about">
       <div class="resume-section-content text-center">
-        <h2 class="text-primary"><i class="fa-solid fa-user-astronaut"></i> Who I Am</h2>
-        <h1>Andres <span class="text-primary">Arteaga</span></h1>
-        <p class="lead">
-          QA & Automation Engineer passionate about scalable testing frameworks and low-code automation.
-          <strong>I connect software quality with process optimization, documentation standards, and cross-team collaboration.</strong>
-          I thrive where precision and problem-solving meet innovation and leadership.
+        <h1 class="mb-0">Andres <span class="text-primary">Arteaga</span></h1>
+        <div class="subheading mb-3">QA Automation Engineer · Process Optimization · Colombia</div>
+        <p class="lead mb-4">
+          Passionate about <strong>quality, process optimization, and problem-solving</strong>.  
+          I bring together my experience in engineering, leadership, and QA to ensure reliable and scalable solutions.  
+          My focus: connecting <strong>software testing, documentation standards, and cross-team collaboration</strong> to create impact.
         </p>
-
         <div class="social-icons">
           <a href="AndresArteaga_CV.pdf" download title="Download CV"><i class="fa-solid fa-file-pdf"></i></a>
           <a href="https://www.linkedin.com/in/andr%C3%A9s-felipe-arteaga-cruz-495b27122/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -121,210 +103,177 @@
         </div>
       </div>
     </section>
+    <hr class="m-0" />
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="resume-section">
+    <!-- Experience -->
+    <section class="resume-section" id="experience">
       <div class="resume-section-content">
-        <h2><i class="fa-solid fa-bullseye text-primary"></i> Where I’ve Made an Impact</h2>
-
-        <div class="mb-5">
-          <h3>QA & Automation Support Engineer – MININGSTORE</h3>
-          <p><em>Oct 2023 – Present | Remote</em></p>
-          <ul>
-            <li>Designed automated workflows with Google Workspace, Firebase and QuickBooks.</li>
-            <li>Documented SOPs and process flows with acceptance criteria and diagrams.</li>
-            <li>Managed incidents via Jira and coordinated with technical teams.</li>
-          </ul>
-          <p><strong>Achievements:</strong> Reduced manual billing time by 40% and automated monthly reports with validation checks.</p>
-        </div>
-
-        <div class="mb-5">
-          <h3>QA Project Coordinator – Alcaldía Municipal de Cota</h3>
-          <p><em>Dec 2024 – Mar 2025 | Freelance</em></p>
-          <ul>
-            <li>Documented QA flows and evaluation criteria for Omnichannel systems.</li>
-            <li>Coordinated dependencies between technical/service teams to ensure error-free deliveries.</li>
-          </ul>
-          <p><strong>Achievements:</strong> Delivered 4 strategic projects with zero critical incidents.</p>
-        </div>
-
-        <div class="mb-5">
-          <h3>Quality & Process Manager – Alina Tech S.A.S</h3>
-          <p><em>May 2021 – Oct 2023 | Bogotá / Hybrid</em></p>
-          <ul>
-            <li>Led IT, cybersecurity and business continuity projects applying QA practices.</li>
-            <li>Implemented ISO-aligned audits and process documentation.</li>
-          </ul>
-          <p><strong>Achievements:</strong> Designed enterprise architecture for government clients and validated mission-critical systems.</p>
-        </div>
-
-        <div>
-          <h3>Bilingual Teacher – Emanuel D’Alzon & Alvernia School</h3>
-          <p><em>2015 – 2021 | Bogotá</em></p>
-          <ul>
-            <li>Integrated digital tools in English teaching with a focus on processes and data analysis.</li>
-          </ul>
-          <p><strong>Achievements:</strong> Automated evaluation workflows and introduced gamified reporting tools.</p>
+        <h2 class="mb-5"><i class="fas fa-briefcase text-primary"></i> Where I’ve Made an Impact</h2>
+        <div class="row">
+          <!-- Job 1 -->
+          <div class="col-md-6 mb-4">
+            <div class="card p-3 h-100 shadow-sm">
+              <div class="card-body">
+                <h3 class="card-title">QA & Automation Support Engineer</h3>
+                <h6 class="text-muted">MININGSTORE · Remote</h6>
+                <p>Designed low-code workflows (Google Workspace, Firebase, QuickBooks) and automated reports reducing manual billing time by 40%.</p>
+              </div>
+              <div class="card-footer small text-muted">Oct 2023 – Present</div>
+            </div>
+          </div>
+          <!-- Job 2 -->
+          <div class="col-md-6 mb-4">
+            <div class="card p-3 h-100 shadow-sm">
+              <div class="card-body">
+                <h3 class="card-title">QA Project Coordinator</h3>
+                <h6 class="text-muted">Municipality of Cota · Freelance</h6>
+                <p>Coordinated QA processes across 4 digital projects, ensuring on-time delivery and zero critical incidents.</p>
+              </div>
+              <div class="card-footer small text-muted">Dec 2024 – Mar 2025</div>
+            </div>
+          </div>
+          <!-- Job 3 -->
+          <div class="col-md-6 mb-4">
+            <div class="card p-3 h-100 shadow-sm">
+              <div class="card-body">
+                <h3 class="card-title">Quality & Process Manager</h3>
+                <h6 class="text-muted">Alina Tech S.A.S · Bogotá</h6>
+                <p>Led IT and cybersecurity projects with QA focus. Designed enterprise architecture for government clients.</p>
+              </div>
+              <div class="card-footer small text-muted">May 2021 – Oct 2023</div>
+            </div>
+          </div>
+          <!-- Job 4 -->
+          <div class="col-md-6 mb-4">
+            <div class="card p-3 h-100 shadow-sm">
+              <div class="card-body">
+                <h3 class="card-title">Bilingual Teacher</h3>
+                <h6 class="text-muted">Emanuel D’Alzon & Alvernia</h6>
+                <p>Integrated digital tools and gamified methodologies, boosting student performance and engagement.</p>
+              </div>
+              <div class="card-footer small text-muted">2015 – 2021</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+    <hr class="m-0" />
 
-    <!-- EDUCATION -->
-    <section id="education" class="resume-section">
+    <!-- Education -->
+    <section class="resume-section" id="education">
       <div class="resume-section-content">
-        <h2><i class="fa-solid fa-graduation-cap text-primary"></i> How I’ve Prepared</h2>
-
-        <p><strong>Specialization in Processes and Quality</strong> – Universidad EAN, Bogotá (2020)</p>
-        <p><strong>Industrial Engineering</strong> – Universidad Konrad Lorenz, Bogotá (2018)</p>
-        <p><strong>Technology in Industrial Design</strong> – Coruniversitec, Bogotá (2007)</p>
-
-        <h3 class="mt-4">Certifications</h3>
-        <ul>
-          <li>QA Engineer – TripleTen (Jul 2025)</li>
-          <li>ISO/IEC 27001 Auditor – CSQ (2023)</li>
-          <li>Initiating & Planning Projects – UC Irvine (Coursera, 2023)</li>
-          <li>Lean Six Sigma Yellow Belt – Universidad EAN (2020)</li>
-          <li>Internal Quality Auditor – Icontec (2019)</li>
-          <li>APTIS Certificate C1 – Richmond (2019)</li>
-        </ul>
-
-        <h3 class="mt-4">Languages</h3>
-        <p>Spanish (Native) • English (C1 Advanced)</p>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="resume-section">
-      <div class="resume-section-content">
-        <h2><i class="fa-solid fa-hands-helping text-primary"></i> How I Can Help You</h2>
-
-        <h3>Technical</h3>
-        <ul>
-          <li>Selenium WebDriver, Pytest, Postman</li>
-          <li>API Testing & SQL</li>
-          <li>Python & GitHub Actions</li>
-          <li>Low-code Automation (Google Workspace, n8n, QuickBooks)</li>
-        </ul>
-
-        <h3 class="mt-3">Soft Skills</h3>
-        <ul>
-          <li>Process Optimization & Problem Solving</li>
-          <li>Leadership & Team Coordination</li>
-          <li>Adaptability and Continuous Learning</li>
-          <li>Cross-functional Communication</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="resume-section">
-      <div class="resume-section-content">
-        <h2><i class="fa-solid fa-rocket text-primary"></i> My Work in Action</h2>
-
+        <h2 class="mb-5"><i class="fas fa-graduation-cap text-primary"></i> How I’ve Prepared</h2>
         <div class="row">
           <div class="col-md-6 mb-4">
-            <div class="card h-100 shadow-sm border-0">
-              <div class="card-body">
-                <h3 class="card-title">Urban Routes Automation</h3>
-                <p>End-to-end test flows for ride-hailing: booking, fares, payments, notifications.</p>
-                <p><strong>Tools:</strong> Selenium, Python, Pytest, Postman</p>
-                <a href="https://github.com/Andrewart2025/qa-project-Urban-Routes-es" target="_blank" class="btn btn-primary btn-sm">View on GitHub</a>
-              </div>
+            <div class="card p-3">
+              <h3 class="card-title">Specialization in Processes & Quality</h3>
+              <p class="mb-1">Universidad EAN – Bogotá</p>
+              <small class="text-muted">2020</small>
             </div>
           </div>
-
           <div class="col-md-6 mb-4">
-            <div class="card h-100 shadow-sm border-0">
-              <div class="card-body">
-                <h3 class="card-title">Urban Grocers App Testing</h3>
-                <p>Automated tests for ordering flows and regression validation.</p>
-                <p><strong>Tools:</strong> Selenium, Pytest, Allure</p>
-                <a href="https://github.com/Andrewart2025/qa-project-Urban-Grocers-app-es" target="_blank" class="btn btn-primary btn-sm">View on GitHub</a>
-              </div>
+            <div class="card p-3">
+              <h3 class="card-title">Industrial Engineering</h3>
+              <p class="mb-1">Universidad Konrad Lorenz – Bogotá</p>
+              <small class="text-muted">2018</small>
             </div>
           </div>
-
           <div class="col-md-6 mb-4">
-            <div class="card h-100 shadow-sm border-0">
-              <div class="card-body">
-                <h3 class="card-title">API Standard Tests</h3>
-                <p>REST API validation, status checks and contract-like assertions.</p>
-                <p><strong>Tools:</strong> Python, Requests, Pytest</p>
-                <a href="https://github.com/Andrewart2025/api_stand_tests" target="_blank" class="btn btn-primary btn-sm">View on GitHub</a>
-              </div>
+            <div class="card p-3">
+              <h3 class="card-title">Technology in Industrial Design</h3>
+              <p class="mb-1">Coruniversitec – Bogotá</p>
+              <small class="text-muted">2007</small>
             </div>
           </div>
+        </div>
+        <h3 class="mt-4">Certifications</h3>
+        <ul>
+          <li>QA Engineer – TripleTen (2025)</li>
+          <li>ISO/IEC 27001 Auditor – CSQ (2023)</li>
+          <li>Lean Six Sigma Yellow Belt – EAN (2020)</li>
+          <li>Internal Quality Auditor – Icontec (2019)</li>
+          <li>English C1 – APTIS Richmond (2019)</li>
+        </ul>
+      </div>
+    </section>
+    <hr class="m-0" />
 
+    <!-- Skills -->
+    <section class="resume-section" id="skills">
+      <div class="resume-section-content">
+        <h2 class="mb-5"><i class="fas fa-tools text-primary"></i> How I Can Help You</h2>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div class="card p-3">
+              <h4>Technical</h4>
+              <ul>
+                <li>Selenium, Pytest, Postman</li>
+                <li>Python & SQL</li>
+                <li>CI/CD with GitHub Actions</li>
+                <li>Low-code automation (Google Workspace, n8n)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="card p-3">
+              <h4>Soft Skills</h4>
+              <ul>
+                <li>Process Optimization</li>
+                <li>Leadership & Teamwork</li>
+                <li>Problem Solving</li>
+                <li>Cross-functional Communication</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+    <hr class="m-0" />
 
-    <!-- CONTACT -->
-    <section id="contact" class="resume-section">
+    <!-- Projects -->
+    <section class="resume-section" id="projects">
       <div class="resume-section-content">
-        <h2><i class="fa-solid fa-paper-plane text-primary"></i> Let’s Connect</h2>
-        <p>Email: <a href="mailto:ing.andarteaga10@gmail.com">ing.andarteaga10@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/andr%C3%A9s-felipe-arteaga-cruz-495b27122/" target="_blank">linkedin.com/in/andresarteaga</a></p>
-        <p>GitHub: <a href="https://github.com/Andrewart2025" target="_blank">github.com/Andrewart2025</a></p>
+        <h2 class="mb-5"><i class="fas fa-project-diagram text-primary"></i> My Work in Action</h2>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 p-3 shadow-sm">
+              <h3 class="card-title">Urban Routes Automation</h3>
+              <p>Automated end-to-end ride booking flows with Selenium and API testing.</p>
+              <a href="https://github.com/Andrewart2025/qa-project-Urban-Routes-es" target="_blank" class="btn btn-primary btn-sm">🔗 View Project</a>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 p-3 shadow-sm">
+              <h3 class="card-title">Urban Grocers App</h3>
+              <p>Regression and functional testing for an e-commerce platform.</p>
+              <a href="https://github.com/Andrewart2025/qa-project-Urban-Grocers-app-es" target="_blank" class="btn btn-primary btn-sm">🔗 View Project</a>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 p-3 shadow-sm">
+              <h3 class="card-title">API Stand Tests</h3>
+              <p>REST API validation including edge cases and error handling.</p>
+              <a href="https://github.com/Andrewart2025/api_stand_tests" target="_blank" class="btn btn-primary btn-sm">🔗 View Project</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+    <hr class="m-0" />
 
-  </main>
+    <!-- Contact -->
+    <section class="resume-section" id="contact">
+      <div class="resume-section-content text-center">
+        <h2 class="mb-5"><i class="fas fa-envelope text-primary"></i> Let’s Connect</h2>
+        <p>Email: <a href="mailto:ing.andarteaga10@gmail.com">ing.andarteaga10@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/andr%C3%A9s-felipe-arteaga-cruz-495b27122/">linkedin.com/in/andresarteaga</a></p>
+        <p>GitHub: <a href="https://github.com/Andrewart2025">github.com/Andrewart2025</a></p>
+      </div>
+    </section>
+  </div>
 
-  <!-- Bootstrap JS -->
+  <!-- Bootstrap core JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Custom scroll offset handler (ensures nav links land exactly at visible start) -->
-  <script>
-    (function () {
-      const offset = () => {
-        // height of fixed navbar (works on resize)
-        const nav = document.querySelector('.navbar.fixed-top');
-        return nav ? nav.getBoundingClientRect().height + 12 : 90;
-      };
-
-      // Attach handler to internal nav links with js-scroll-trigger class
-      document.querySelectorAll('a.js-scroll-trigger[href^="#"]').forEach(link => {
-        link.addEventListener('click', function (e) {
-          e.preventDefault();
-          const id = this.getAttribute('href').slice(1);
-          const target = document.getElementById(id);
-          if (!target) return;
-          const top = target.getBoundingClientRect().top + window.pageYOffset - offset();
-          window.scrollTo({ top: top, behavior: 'smooth' });
-
-          // collapse mobile menu if open
-          const bsCollapse = document.querySelector('.navbar-collapse.show');
-          if (bsCollapse) {
-            const collapse = new bootstrap.Collapse(bsCollapse);
-            collapse.hide();
-          }
-        });
-      });
-
-      // In case user lands with an anchor in URL (page load), scroll to it correctly
-      window.addEventListener('load', function () {
-        if (location.hash) {
-          const id = location.hash.slice(1);
-          const target = document.getElementById(id);
-          if (target) {
-            const top = target.getBoundingClientRect().top + window.pageYOffset - offset();
-            window.scrollTo(0, top);
-          }
-        }
-      });
-
-      // If user resizes window, we may need to adjust scroll-margin fallback
-      window.addEventListener('resize', () => {
-        document.querySelectorAll('section[id]').forEach(s => {
-          s.style.scrollMarginTop = offset() + 'px';
-        });
-      });
-      // Set initial fallback scrollMarginTop
-      document.querySelectorAll('section[id]').forEach(s => {
-        s.style.scrollMarginTop = offset() + 'px';
-      });
-    })();
-  </script>
+  <script src="js/scripts.js"></script>
 </body>
 </html>
