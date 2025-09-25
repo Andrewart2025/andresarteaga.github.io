@@ -32,6 +32,11 @@
       font-size: 0.9rem;
       text-transform: uppercase;
     }
+    /* Scroll fix: evita que los headers queden tapados */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
     /* Más espacio entre secciones */
     .resume-section {
       padding: 80px 0;
@@ -41,7 +46,7 @@
       margin: 0 auto;
     }
     .resume-section h2 {
-      margin-bottom: 3.5rem; /* Más separación después de los headers */
+      margin-bottom: 3.5rem;
     }
     .social-icons a {
       font-size: 1.5rem;
@@ -57,16 +62,17 @@
     /* Estilo especial para WHO I AM */
     #about {
       background-color: rgba(26, 115, 232, 0.05);
-      padding: 60px 20px;
-      border-radius: 10px;
-      margin-bottom: 50px;
+      padding: 80px 20px;
+      border-radius: 12px;
+      margin-bottom: 60px;
+    }
+    #about h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
     }
     #about .lead {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    #about .social-icons {
-      margin-top: 20px;
+      font-size: 1.2rem;
+      line-height: 1.8;
     }
   </style>
 </head>
@@ -98,12 +104,9 @@
   <div class="container-fluid p-0">
     <!-- About / Who I Am -->
     <section class="resume-section" id="about">
-      <div class="resume-section-content">
+      <div class="resume-section-content text-center">
+        <h2 class="mb-4"><i class="fa-solid fa-user-astronaut text-primary"></i> Who I Am</h2>
         <h1 class="mb-4">Andres <span class="text-primary">Arteaga</span></h1>
-        <div class="subheading mb-4">
-          QA Automation Engineer · Colombia ·
-          <a href="mailto:ing.andarteaga10@gmail.com">ing.andarteaga10@gmail.com</a>
-        </div>
         <p class="lead mb-4">
           QA & Automation Engineer passionate about scalable testing frameworks and low-code automation. 
           <strong>I connect software quality with process optimization, documentation standards, and cross-team collaboration.</strong> 
@@ -117,7 +120,47 @@
       </div>
     </section>
 
-    <!-- Aquí seguirían las demás secciones (Experience, Education, Skills, Projects, Contact) igual que antes -->
+    <!-- Experience -->
+    <section class="resume-section" id="experience">
+      <div class="resume-section-content">
+        <h2 class="mb-5"><i class="fa-solid fa-bullseye text-primary"></i> Where I’ve Made an Impact</h2>
+        <p>Aquí iría toda tu experiencia (Miningstore, Alcaldía, Alina Tech, Docencia)...</p>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="resume-section" id="education">
+      <div class="resume-section-content">
+        <h2 class="mb-5"><i class="fa-solid fa-graduation-cap text-primary"></i> How I’ve Prepared</h2>
+        <p>Aquí iría tu educación y certificaciones...</p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="resume-section" id="skills">
+      <div class="resume-section-content">
+        <h2 class="mb-5"><i class="fa-solid fa-hands-helping text-primary"></i> How I Can Help You</h2>
+        <p>Aquí van tus skills técnicos y blandos...</p>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="resume-section" id="projects">
+      <div class="resume-section-content">
+        <h2 class="mb-5"><i class="fa-solid fa-rocket text-primary"></i> My Work in Action</h2>
+        <p>Aquí se listan tus proyectos con links a GitHub...</p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="resume-section" id="contact">
+      <div class="resume-section-content">
+        <h2 class="mb-5"><i class="fa-solid fa-paper-plane text-primary"></i> Let’s Connect</h2>
+        <p>Email: <a href="mailto:ing.andarteaga10@gmail.com">ing.andarteaga10@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/andr%C3%A9s-felipe-arteaga-cruz-495b27122/">linkedin.com/in/andresarteaga</a></p>
+        <p>GitHub: <a href="https://github.com/Andrewart2025">github.com/Andrewart2025</a></p>
+      </div>
+    </section>
   </div>
 
   <!-- Bootstrap Bundle with Popper -->
