@@ -40,6 +40,9 @@
       border: none;
       border-radius: 12px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      min-height: 220px;
     }
     .card:hover {
       transform: translateY(-4px);
@@ -47,8 +50,9 @@
     }
     .card-title {
       color: #1a73e8;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: bold;
+      margin-bottom: 0.5rem;
     }
 
     /* Social icons */
@@ -61,6 +65,30 @@
     .fa-file-pdf { color: #d93025; }
     .fa-linkedin-in { color: #0a66c2; }
     .fa-github { color: #333; }
+
+    /* ====== Ajustes visuales para mejorar uso de espacio ====== */
+    .resume-section {
+      padding: 3rem 0 !important; /* antes era 5rem */
+    }
+    .resume-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      font-weight: 700;
+    }
+    .lead {
+      font-size: 1.15rem; /* ~18px */
+      line-height: 1.7;
+      max-width: 900px;
+      margin: 0 auto 2rem auto;
+    }
+    .resume-section p {
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+    .resume-section-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body id="page-top">
@@ -110,7 +138,7 @@
       <div class="resume-section-content">
         <h2 class="mb-5"><i class="fas fa-briefcase text-primary"></i> Where I’ve Made an Impact</h2>
         <div class="row">
-          <!-- Job 1 -->
+          <!-- Jobs as cards -->
           <div class="col-md-6 mb-4">
             <div class="card p-3 h-100 shadow-sm">
               <div class="card-body">
@@ -121,7 +149,6 @@
               <div class="card-footer small text-muted">Oct 2023 – Present</div>
             </div>
           </div>
-          <!-- Job 2 -->
           <div class="col-md-6 mb-4">
             <div class="card p-3 h-100 shadow-sm">
               <div class="card-body">
@@ -132,7 +159,6 @@
               <div class="card-footer small text-muted">Dec 2024 – Mar 2025</div>
             </div>
           </div>
-          <!-- Job 3 -->
           <div class="col-md-6 mb-4">
             <div class="card p-3 h-100 shadow-sm">
               <div class="card-body">
@@ -143,7 +169,6 @@
               <div class="card-footer small text-muted">May 2021 – Oct 2023</div>
             </div>
           </div>
-          <!-- Job 4 -->
           <div class="col-md-6 mb-4">
             <div class="card p-3 h-100 shadow-sm">
               <div class="card-body">
@@ -277,3 +302,4 @@
   <script src="js/scripts.js"></script>
 </body>
 </html>
+
