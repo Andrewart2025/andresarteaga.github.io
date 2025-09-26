@@ -20,8 +20,13 @@
       --main-blue: #1a73e8;
       --main-blue-dark: #1558b0;
     }
-    html { scroll-behavior: smooth; }
-    body { font-family: "Muli", sans-serif; margin: 0; padding-top: 70px; }
+    html {
+      scroll-behavior: smooth; /* smooth scroll fallback */
+    }
+    body {
+      font-family: "Muli", sans-serif;
+      margin: 0;
+    }
 
     /* NAVBAR */
     .bg-primary { background-color: var(--main-blue) !important; }
@@ -29,7 +34,10 @@
     .navbar .nav-link i { margin-right: .5rem; }
 
     /* OFFSET FIX (fallback) */
-    section[id] { scroll-margin-top: 100px; }
+    section[id] {
+      /* Fallback for browsers that don't support JS offset: reserve space */
+      scroll-margin-top: 100px;
+    }
 
     /* GENERAL LAYOUT */
     .resume-section { padding: 80px 0; }
@@ -43,12 +51,10 @@
       background-color: rgba(26,115,232,0.05);
       border-radius: 12px;
       padding: 48px 22px;
-      text-align: center;
     }
     #about h2 { font-size: 2rem; margin-bottom: .75rem; }
     #about h1 { font-size: 2.4rem; margin-bottom: .5rem; }
     #about .lead { font-size: 1.15rem; line-height: 1.7; color: #222; }
-    #about img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-bottom: 15px; }
 
     /* Social icons */
     .social-icons a { font-size: 1.4rem; margin-right: 14px; color: var(--main-blue); }
@@ -57,8 +63,10 @@
     /* Project cards */
     .card-title { color: var(--main-blue); }
 
-    /* Make sure navbar fixed does not cover content visually */
+    /* Make sure navbar fixed does not cover content visually (extra top padding to body) */
     body { padding-top: 70px; }
+
+    /* Small screens: reduce padding-top offset */
     @media (max-width: 768px) {
       body { padding-top: 64px; }
       section[id] { scroll-margin-top: 90px; }
@@ -66,7 +74,6 @@
   </style>
 </head>
 <body id="page-top">
-
   <!-- NAV -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <div class="container-fluid">
@@ -99,7 +106,6 @@
     <!-- WHO I AM -->
     <section id="about" class="resume-section">
       <div class="resume-section-content text-center">
-        <img src="assets/img/profile.jpg" alt="photo" class="rounded-circle mb-3">
         <h2 class="text-primary"><i class="fa-solid fa-user-astronaut"></i> Who I Am</h2>
         <h1>Andres <span class="text-primary">Arteaga</span></h1>
         <p class="lead">
@@ -109,7 +115,7 @@
         </p>
 
         <div class="social-icons">
-          <a href="assets/docs/AndresArteaga_CV.pdf" download title="Download CV"><i class="fa-solid fa-file-pdf"></i></a>
+          <a class="social-icon" href="AndresArteaga_CV.pdf" download><i class="fas fa-file-pdf"></i></a>
           <a href="https://www.linkedin.com/in/andr%C3%A9s-felipe-arteaga-cruz-495b27122/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
           <a href="https://github.com/Andrewart2025" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
         </div>
@@ -268,9 +274,57 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Custom scroll offset handler -->
+  <!-- Custom scroll offset handler (ensures nav links land exactly at visible start) -->
   <script>
     (function () {
       const offset = () => {
+        // height of fixed navbar (works on resize)
         const nav = document.querySelector('.navbar.fixed-top');
-        return nav ? nav.get
+        return nav ? nav.getBoundingClientRect().height + 12 : 90;
+      };
+
+      // Attach handler to internal nav links with js-scroll-trigger class
+      document.querySelectorAll('a.js-scroll-trigger[href^="#"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const id = this.getAttribute('href').slice(1);
+          const target = document.getElementById(id);
+          if (!target) return;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset();
+          window.scrollTo({ top: top, behavior: 'smooth' });
+
+          // collapse mobile menu if open
+          const bsCollapse = document.querySelector('.navbar-collapse.show');
+          if (bsCollapse) {
+            const collapse = new bootstrap.Collapse(bsCollapse);
+            collapse.hide();
+          }
+        });
+      });
+
+      // In case user lands with an anchor in URL (page load), scroll to it correctly
+      window.addEventListener('load', function () {
+        if (location.hash) {
+          const id = location.hash.slice(1);
+          const target = document.getElementById(id);
+          if (target) {
+            const top = target.getBoundingClientRect().top + window.pageYOffset - offset();
+            window.scrollTo(0, top);
+          }
+        }
+      });
+
+      // If user resizes window, we may need to adjust scroll-margin fallback
+      window.addEventListener('resize', () => {
+        document.querySelectorAll('section[id]').forEach(s => {
+          s.style.scrollMarginTop = offset() + 'px';
+        });
+      });
+      // Set initial fallback scrollMarginTop
+      document.querySelectorAll('section[id]').forEach(s => {
+        s.style.scrollMarginTop = offset() + 'px';
+      });
+    })();
+  </script>
+</body>
+</html>
